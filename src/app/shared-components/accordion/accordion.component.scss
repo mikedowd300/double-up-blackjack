@@ -1,0 +1,55 @@
+@use '../../../scss/variables.scss';
+
+:host {
+
+  .accordion-container {
+    max-height: 0;
+    transition: max-height 0.4s, padding-left 0.4s;
+    overflow: scroll;
+    background-color: variables.$primary-color;
+    margin-bottom: 12px;
+
+    &.title {
+      border: 1px solid white;
+      border-radius: 3px;
+      padding: 0 12px 12px;
+      min-height: 38px;
+
+      .instruction-wrapper {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        position: sticky;
+        padding: 12px 0;
+        background-color: variables.$primary-color;
+        top: 0;
+        z-index: 1;
+
+        .instructions {
+          margin: 0;
+          font-size: 24px;
+          line-height: 24px;
+        }
+
+        .toggle {
+          padding: 4px 0 0;
+          margin-top: 4px;
+          font-size: 32px;
+          line-height: 20px;
+
+          &.close {
+            transform: rotate(180deg);
+            margin-top: -12px;
+          }
+        }
+      }
+    }
+
+    &.expanded {
+      max-height: 400px;
+      padding-left: 12px;
+    }
+  }
+}

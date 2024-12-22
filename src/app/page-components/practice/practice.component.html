@@ -1,0 +1,117 @@
+<div class="practice-container page" [class.play-error]="hasPlayError">
+  <accordion [expanded]="false" title="Perfect Your Play with the Play Charts of Your Choice">
+    <p><span class="bullet-point">* </span>Practice what decision to make with any first 2 card combination with any Dealer Upcard</p>
+    <p><span class="bullet-point">* </span>Customize what card combinations to practice by <i>removing</i> or <i>including the columns and rows of your choice.</i></p>
+    <p><span class="bullet-point">* </span>Practice with the <i>Play Chart</i> of your choice, be it basic strategy or a customized chart.</p>
+    <p><span class="bullet-point">* </span>If your play chart includes deviations, you may select what deviation range to practice.</p>
+    <p><span class="bullet-point">* </span>Your accuracy is tracked by with a Percent Rating as well as the length of your latest perfect play streak.</p>
+    <p><span class="bullet-point">* </span>Customize your practice by selecting the options below:</p>
+  </accordion>
+  <accordion
+    [expanded]="false"
+    title="Select Conditions"
+    [expand$]="expandConditions$"
+  >
+    <div class="flex row">
+
+      <div class="check-box-wrapper row">
+        <label for="">Uses Surrender: </label>
+        <input 
+          type="checkbox"
+          [(ngModel)]="usesSurrender"
+        >
+      </div>
+
+      <div class="select-info line">
+        <label for="">For the Play Strategy:</label>
+        <div class="input-wrapper">
+          <select (change)="updateSelectedPlayStrategyTitle($event)">
+            @for(title of allPlayTitles; track title) {
+            <option 
+              [value]="title"
+              [selected]="title === selectedPlayStrategyTitle"
+            >{{title}}</option>
+            }  
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex row deviation-range-wrapper">
+      <label for="">Deviations Range: </label>
+      <div class="input-wrapper">
+        <input 
+          type="number"
+          max="10"
+          [(ngModel)]="deviationRange"
+        >
+      </div>
+    </div>
+
+    <div class="chart-wrapper">
+      <button class="absolute" (click)="deal()">Deal</button>
+      <div class="upcard-wrapper">
+        <p>Select a column or row to remove it from practice. Reselect it to reinclude it.</p>
+        @for(card of upCards; track card; let index = $index; ) {
+        <button
+          class="simple upcard"
+          [class.removed]="upCardExceptions.includes(card)"
+          (click)="updateFilteredUpCardExceptions(card, index)"
+        >{{ card }}</button>
+        } 
+      </div>
+      <div class="combo-cards-wrapper">
+        @for(combo of first2Cards; track combo; let columnIndex = $index; ) {
+        <div class="upcard-cards-row-wrapper">
+          <button
+            class="simple combo"
+            [class.removed]="first2CardsExceptions.includes(combo)"
+            (click)="updateFilteredFirst2Cards(combo, columnIndex)"
+          >{{ combo }}</button>
+          <div class="combo-row-wrapper">
+            @for(card of upCards; track card; let rowIndex = $index;) {
+            <span
+              class="combo"
+              [class.removed]="exceptionRows.includes(rowIndex) || exceptionColumns.includes(columnIndex)"
+            >
+              <span>{{ selectedPlayStrategy.combos[card + '-' + combo].options }}</span>
+              <span>{{ selectedPlayStrategy.combos[card + '-' + combo].conditions }}</span>
+            </span>
+            }
+          </div>
+        </div>
+        } 
+      </div>
+    </div>
+  </accordion>
+  @if(showPracticeTable) {
+  <div class="practice-content">
+    <div class="dealer-card">
+      <img [src]="dealerCard" alt="Dealer Card">
+      @if(deviationRange > 0) {
+      <div class="truecount-wrapper">
+        <span class="inner-truecount-wrapper">{{ trueCount }}</span>
+        <p>True Count</p>
+      </div>
+      }
+    </div>
+    <div class="player-cards">
+      <img [src]="playerCard1" alt="Player Card">
+      <img [src]="playerCard2" alt="Player Card">
+    </div>
+    <div class="button-container">
+      <button (click)="doAction('H')" [class.correct-action]="action === 'H'">Hit</button>
+      <button (click)="doAction('ST')" [class.correct-action]="action === 'ST'">Stay</button>
+      <button (click)="doAction('DD')" [class.correct-action]="action === 'DD'">Double Down</button>
+      <button (click)="doAction('DU')" [class.correct-action]="action === 'DU'">Double Up</button>
+      @if(canSplit) {
+        <button (click)="doAction('SP')" [class.correct-action]="action === 'SP'">Split</button>
+      }
+      @if(usesSurrender) {
+        <button (click)="doAction('SR')">Surrender</button>
+      }
+    </div>
+  </div>
+  }
+</div>

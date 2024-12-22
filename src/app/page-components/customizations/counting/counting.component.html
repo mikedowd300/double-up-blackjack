@@ -1,0 +1,94 @@
+<div class="counting-container page">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.COUNT"
+  ></strategy-selector>
+  <div class="content">
+    <p class="directions">Set the desired count value for each card value!</p>
+    <div class="count-chart-wrapper">
+    @for(card of firstCards; track card;) {
+      <div class="card-info-wrapper">
+        <label>{{card}}</label>
+        <div class="input-wrapper">
+          <input 
+            type="number"
+            [(ngModel)]="activeStrategy.valuesMap[card]"
+          >
+        </div>
+      </div>
+    }
+    </div>
+    <div class="count-chart-wrapper">
+      @for(card of middleCards; track card;) {
+        <div class="card-info-wrapper">
+          <label>{{card}}</label>
+          <div class="input-wrapper">
+            <input 
+              type="number"
+              [(ngModel)]="activeStrategy.valuesMap[card]"
+            >
+          </div>
+        </div>
+      }
+      </div>
+    <div class="count-chart-wrapper">
+      @for(card of lastCards; track card;) {
+        <div class="card-info-wrapper">
+          <label>{{card}}</label>
+          <div class="input-wrapper">
+            <input 
+              type="number"
+              [(ngModel)]="activeStrategy.valuesMap[card]"
+            >
+          </div>
+        </div>
+      }
+      </div>
+  </div>
+
+  <div class="bottom-row row">
+    <div class="card-info-wrapper running-count">
+      <label>Start running count at:</label>
+      <div class="input-wrapper">
+        <input 
+          type="number"
+          [(ngModel)]="activeStrategy.startingCount"
+        >
+      </div>
+    </div>
+
+    <div class="card-info-wrapper rounding-method">
+      @for(method of roundingMethods; track method;) {
+      <div class="row">
+        <label for="">{{ method }}</label>
+        <input 
+          type="radio"
+          [checked]="activeStrategy.roundingMethod === method"
+          (change)="updateRoundingMethod(method)"
+        >
+      </div>
+      }
+    </div>
+    <div class="card-info-wrapper half-count">
+      <label>Use half count?</label>
+      <div class="input-wrapper">
+        <input 
+          type="checkbox"
+          [(ngModel)]="activeStrategy.useHalfCount"
+        >
+      </div>
+    </div>
+    <div class="card-info-wrapper true-count">
+      <label>Use True Count?</label>
+      <div class="input-wrapper">
+        <input 
+          type="checkbox"
+          [(ngModel)]="activeStrategy.convertsToTC"
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,166 @@
+@use '../../../scss/variables.scss';
+
+:host {
+
+  .practice-container {
+    padding-top: 12px;
+
+    &.play-error {
+      background-color: variables.$error-color;
+
+      .correct-action {
+        background-color: green;
+      }
+    }
+
+    .check-box-wrapper {
+      margin-top: 12px;
+
+      input[type=checkbox] {
+        accent-color: #845ec2;
+        width: 18px;
+        height: 18px;
+        margin-left: 12px;
+      }
+    }
+
+    .deviation-range-wrapper {
+      margin-top: 8px;
+      justify-content: flex-start;
+      align-items: center;
+
+      .input-wrapper {
+        width: 40px;
+        margin-left: 8px;
+  
+        input {
+          width: 36px;
+          font-size: 16px;
+          padding: 2px 6px;
+        }
+      }
+    }
+
+    .select-info {
+      display: flex;
+      margin-top: 12px;
+    }
+
+    .flex.row:not(.deviation-range-wrapper) {
+      justify-content: space-between;
+
+      .input-wrapper {
+        margin-left: 12px;
+        width: 200px;
+
+        select {
+          max-height: 20px;
+          padding: 0;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .chart-wrapper {
+      min-width: 665px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .absolute {
+        position: absolute;
+        top: 36px;
+        left: 0;
+      }
+
+      .upcard-wrapper {
+        margin-left: 60px;
+      }
+  
+      .combo-cards-wrapper {
+        display: flex;
+        flex-direction: column;
+  
+        .upcard-cards-row-wrapper {
+          display: flex;
+          flex-direction: row;
+  
+          .combo-row-wrapper {
+            display: flex;
+            justify-content: center;
+  
+            span.combo {
+              font-size: 10px;
+              display: inline-flex;
+              flex-direction: column;
+              justify-content: center;
+              box-sizing: border-box;
+              width: 60px;
+              height: 100%;
+              border-right: 1px solid white;
+              text-align: center;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+  
+      .upcard-wrapper, .combo-cards-wrapper {
+        box-sizing: border-box;
+  
+        .upcard, .combo {
+          box-sizing: border-box;
+          border: 1px solid white;
+          width: 60px;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+  
+          &.removed {
+            background-color: rgba(222, 222, 222, .3);
+          }
+        }
+
+        .combo.simple {
+          border-bottom-left-radius: 3px;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+
+    .practice-content {
+
+      .dealer-card, .player-cards {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 12px;
+
+        .truecount-wrapper {
+          border: 2px solid white;
+          border-radius: 8px;
+          padding: 8px;
+          display: flex;
+          flex-direction: column;
+          justify-content: end;
+          align-items: center;
+
+          .inner-truecount-wrapper {
+            margin: auto;
+            font-size: 36px;
+            display: inline-block;
+            padding: 12px;
+            border: 2px solid white;
+            background-color: variables.$secondary-color;
+            border-radius: 50%;
+          }
+        }
+
+        img {
+          width: 90px;
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}

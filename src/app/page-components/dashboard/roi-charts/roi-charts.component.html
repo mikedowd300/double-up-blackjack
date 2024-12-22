@@ -1,0 +1,35 @@
+<div class="roi-charts-container page">
+  <button (click)="showRoiChart$.next(false)" class="return-x">X</button>
+  <div class="row row-wrapper">
+    <div class="select-wrapper">
+      <select (change)="handleSelectHandle($event)">
+      @for(handle of handles; track handle) {
+        <option 
+          [value]="handle" 
+          [selected]="handle === (selectedPlayer$ | async)"
+        >
+          {{ handle }}
+        </option>
+      }  
+      </select>
+    </div>
+    <div class="input-wrapper">
+      <input 
+        type="number"  
+        min="1" 
+        max="20" 
+        [value]="undateChartRange$ | async"
+        (change)="updateChartRange($event)"
+      >
+    </div>
+  </div>
+  <div class="canvas-wrapper">
+    <canvas id="total-winnings-chart"></canvas>
+  </div>
+  <div class="canvas-wrapper">
+    <canvas id="average-winnings-chart"></canvas>
+  </div>
+  <div class="canvas-wrapper">
+    <canvas id="roi-chart"></canvas>
+  </div>
+</div>

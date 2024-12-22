@@ -1,0 +1,36 @@
+<div class="wonging-container page">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.WONG"
+    [centerAlign]="true"
+  ></strategy-selector>
+  <div class="content">
+    <div class="radio-input-wrapper">
+      <label>Always Insure</label>
+      <input 
+        type="radio"
+        [checked]="activeStrategy.alwaysInsure"
+        (change)="changePlan($event, 'alwaysInsure')"
+      >
+    </div>
+    <div class="radio-input-wrapper">
+      <label>Never Insure</label>
+      <input 
+        type="radio"
+        [checked]="activeStrategy.neverInsure"
+        (change)="changePlan($event, 'neverInsure')"
+      >
+    </div>
+    <div class="input-wrapper">
+      <label>Insure at or above a true count of:</label>
+      <input 
+        type="number"
+        [(ngModel)]="activeStrategy.atTCof"
+        (change)="changePlan($event, 'trueCount')"
+      >
+    </div>
+  </div>
+</div>

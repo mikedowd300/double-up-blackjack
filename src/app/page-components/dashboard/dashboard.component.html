@@ -1,0 +1,47 @@
+<div class="dashboard-container page">
+  @if(showLoader$ | async) {
+    <loader></loader>
+  }
+  @if(!(showLoader$ | async)) {
+    <div class="dashboard-wrapper">
+      <button class="button-tile" (click)="showReplay$.next(true)">Replay Hands</button>
+      <button class="button-tile" (click)="showBankrollChart$.next(true)">Bankroll Chart</button>
+      <button class="button-tile" (click)="showRoiChart$.next(true)">Roi Chart</button>
+      <button class="button-tile" (click)="showInsuranceResults$.next(true)">Insurance Analysis</button>
+      <button class="button-tile" (click)="showStreakInfo$.next(true)">Break Even Streaks</button>
+      <p># of losing streaks greater than 100, 1000, 10000, 100000 rounds</p>
+      <p>Down swings in terms of betting units and duration</p>
+    </div>
+  }
+  @if(!(showLoader$ | async) && (showReplay$ | async)) {
+    <replay
+      [history]="history$ | async"
+      [showReplay$]="showReplay$"
+      [activeRecordIndex]="activeRecordIndex$ | async"
+    ></replay>
+  }
+  @if(!(showLoader$ | async) && (showBankrollChart$ | async)) {
+    <bankroll-chart
+      [bankrollData]="this.bankrollData$ | async"
+      [showBankrollChart$]="showBankrollChart$"
+      [replayHandAtIndex$]="replayHandAtIndex$"
+    ></bankroll-chart>
+  }
+  @if(!(showLoader$ | async) && (showRoiChart$ | async)) {
+    <roi-charts
+      [showRoiChart$]="showRoiChart$"
+      [history$]="history$"
+      [handles]="vmService.playerHandles"
+    ></roi-charts>
+  }
+  @if(!(showLoader$ | async) && (showInsuranceResults$ | async)) {
+    <insurance-results
+      [showInsuranceResults$]="showInsuranceResults$"
+      [history]="insuranceHistory$ | async"
+      [handles]="vmService.playerHandles"
+    ></insurance-results>
+  }
+  @if(!(showLoader$ | async) && (showStreakInfo$ | async)) {
+    <break-even-streaks [showStreakInfo$]="showStreakInfo$"></break-even-streaks>
+  }
+</div>

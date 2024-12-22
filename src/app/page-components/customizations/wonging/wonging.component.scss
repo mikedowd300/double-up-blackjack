@@ -1,0 +1,99 @@
+@use '../../../../scss/variables.scss';
+
+:host {
+
+  .wonging-container {
+    padding: 16px;
+
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 24px;
+      border-top: 1px solid variables.$border-color;
+
+      .button-column {
+        display: flex;
+        flex-direction: column;
+        margin-right: 12px;
+        justify-content: space-between;
+
+        button {
+          max-width: 70px;
+          margin-right: 0;
+
+          &:nth-child(even) {
+            margin-top: 12px;
+          }
+        }
+      } 
+      
+      .input-column {
+        display: flex;
+        flex-direction: column;
+        background-color: variables.$secondary-color;
+        border: 1px solid variables.$lite-border;
+        border-radius: 3px;
+
+        .row {
+          padding-bottom: 12px;
+          padding: 8px 12px 20px;
+          justify-content: center;
+          min-width: 304px;
+
+          &:nth-child(even) {
+            background-color: rgba(255, 255, 255, .2);
+
+            .enter-hand label, .exit-hand label {
+              color: variables.$font-color;
+            }
+          }
+
+          .enter-hand {
+            margin-right: 12px;
+          }
+
+          .enter-hand, .exit-hand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin-top: 12px;
+  
+            label {
+              font-size: 18px;
+              margin-bottom: 8px;
+              color: #fbeaff;
+
+              &:nth-child(1) {
+                margin-top: 0;
+              }
+            }
+            
+            .input-wrapper {
+              width: 130px;
+
+              input {
+                font-size: 24px;
+              }
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
+
+        .button-column {
+          flex-direction: row;
+          margin-bottom: 12px;
+          margin-right: 0;
+
+          button:nth-child(even){
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

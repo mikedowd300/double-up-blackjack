@@ -1,0 +1,120 @@
+@use '../../../../scss/variables.scss';
+
+:host {
+
+  .play-chart-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    strategy-selector {
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .content {
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid variables.$border-color;
+      padding-top: 36px;
+
+      .info {
+        width: 100%;
+        max-width: 1065px;
+        font-size: 24px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 24px;
+        text-shadow: 1px 0.6px variables.$dark-font-color;
+      }
+
+      .play-chart {
+        display: flex;
+        box-sizing: border-box;
+        flex-wrap: nowrap;
+        justify-content: center;
+
+        @media screen and (max-width: 1065px) {
+          justify-content: left;
+        }
+
+        .row-headers {
+          padding-top: 45px;
+          border-right: 1px solid variables.$border-color;
+
+          .row-header {
+            height: 73.14px;
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 24px 8px;
+            font-size: 24px;
+            text-align: center;
+            border-top: 1px solid variables.$border-color;
+            border-left: 1px solid variables.$border-color;
+            width: 55px;
+            background-color: variables.$primary-color;
+            color: variables.$font-color;
+          }
+        }
+
+        .chart-columns {
+          display: flex;
+          flex-wrap: nowrap;
+
+          .upcard-column {
+
+            span.chart-header {
+              display: inline-block;
+              padding: 8px;
+              font-size: 24px;
+              text-align: center;
+              width: 100%;
+              border-right: 1px solid variables.$border-color;
+              border-bottom: 1px solid variables.$border-color;
+              height: 45px;
+              box-sizing: border-box;
+              background-color: variables.$primary-color;
+              color: variables.$font-color;
+              margin-bottom: 1.4px;
+  
+              &:last-child {
+                border-right: none;
+              }
+            }
+
+            .column {
+
+              .cell-wrapper {
+                border-bottom: 1px solid variables.$border-color;
+                border-right: 1px solid variables.$border-color;
+
+                .options-input-wrapper {
+                  width: 70px;
+                  height: 36px;
+                  box-sizing: border-box;
+                  overflow: hidden;
+                  padding: 8.5px 2px;
+                  background-color: white;
+                  text-align: center;
+
+                  input {
+                    width: 100%;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    border: none;
+                    text-align: center;
+                    font-size: 14px;
+                    color: variables.$dark-font-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

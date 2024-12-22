@@ -1,0 +1,86 @@
+<div class="index-charts-container page">
+  <div class="sub-nav row">
+    <div class="link-wrapper">
+      <a routerLink="/sim-data" routerLinkActive="selected">
+        <p>Sim Data</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/visualize-data" routerLinkActive="selected">
+        <p>Visualize Data</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/edit-data" routerLinkActive="selected">
+        <p>Edit Data</p>
+      </a>
+    </div>
+  </div>
+  <h2>Run sims to create a basic strategy chart, or even a deviation chart with index plays, for your own counting system!</h2>
+  <p>"Sim Data" creates new data and adds it to the existing sim data for more accurate chart</p>
+  <p>"Visualize Data" displays the results of millions of hands of simmed data, allowing the proper play for any first 2 card combination with any count from -10 t0 10 to be visually obvious</p>
+  <p>"Edit Data" allows you to edit or delete simmed data</p>
+  <hr>
+  <div class="instructions">
+    <p>Use the following steps to create custom basic strategy and deviation strategy charts</p>
+    <p>Simms will be run with the following anctions: hit, stay, double up, double down and, if appropriate, split.</p>
+    <div class="instruction-details">
+      <button class="borderless" (click)="expand(0)">Step 1: Your Counting Strategy</button>
+      <accordion [expanded]="instructionDetail[0]">
+        <p>If the counting strategy you wish to use does not already exist, create a custom counting strategy <a routerLink="/counting">here</a>.</p>
+      </accordion>
+    </div>
+    <div class="instruction-details">
+      <button class="borderless" (click)="expand(1)">Step 2 - Your Playing Strategy</button>
+      <accordion [expanded]="instructionDetail[1]">
+        <p>The trick here is you are simultaneously making and using a play strategy.</p>
+        <p>Start by making a copy of the alreay existing play strategy called "deviationFinder" <a routerLink="/play-chart">here</a>. That strategy will always stay on the first 2 cards.</p>
+        <p>You will update your copy of this chart little by little as you gather data.</p>
+      </accordion>
+    </div>
+    <div class="instruction-details">
+      <button class="borderless" (click)="expand(2)">Step 3 - Conditions</button>
+      <accordion [expanded]="instructionDetail[2]">
+        <p>From the <a routerLink="/sim-data">Sim Data</a> page, select the conditions, counting system and play strategy you want.</p>
+        <p>Note: sims run with different conditions, including counting methods and play strategies, will not be aggregated. Instead they will be stored seperately.</p>
+      </accordion>
+    </div>
+    <div class="instruction-details">
+      <button class="borderless" (click)="expand(3)">Step 4 - Players first 2 cards</button>
+      <accordion [expanded]="instructionDetail[3]">
+        <p>From the <a routerLink="/sim-data">Sim Data</a> page,  select the first 2 players cards from the dropdown.</p>
+        <p>The big caveat here is that "Order Matters"</p><p>>When a hand plays out a hit or a split scenario, it will depend on your custom strategy chart to finish the hand appropriatly. For example if you choose "77" as your first 2 cards then you will get a second card, say a 4, which you would probably continue with as a double, except that you have not updated your strategy chart with an action for the 11 other that the default stay. This would severly skew your data results making it worthless. </p>
+        <p>(If this happens and you wish to eliminate some of you simulations without eliminataing all of them, you may do so <a routerLink="/edit-data">here.)</a></p>
+        <p>The proper order run simulations to avoid "bad data" is to start with running hard 19, then hard 18 all the way down to hard 10</p>
+        <p>Note: The reason we don't start with 20 is because, unless 3 cards are involved, a 20 will be either a TT or an A9. In either case, those will playout when split or hit in scenarios that sre not yet updated on the playe strategy chart.</p>
+        <p>After hard 10, run A9, hard 9, A8, hard 8, A7, hard 7, A6 hard 6, A5 hard 5, A4, A3, A2.</p>
+        <p>A hard 4 only exits in the situation that "22" splits to the max split point and then another 2 comes. It's probably safe to just give a hard 4 the same behavior as a hard 5.</p>
+        <p>Run the split scenarios for "TT" to "AA"</p>
+      </accordion>
+    </div>
+    <div class="instruction-details">
+      <button class="borderless" (click)="expand(4)">Step 5 - How many hands to Sim</button>
+      <accordion [expanded]="instructionDetail[4]">
+        <p>From the <a routerLink="/sim-data">Sim Data</a> page, choose how many hands you would like simmed.</p>
+        <p>What happens under the hood?</p>
+        <p>First, the number of hands you choose to run is not just hands with your first starting 2 cards. It will include all hands.</p>
+        <p>There will be 4 or 5 players sitting at a sim table. For the first 2 cards you have selected, one will always hit, another stay, another, double up, another double down and, if appropriate another will always split.</p>
+        <p>After a hand is dealt, players without the selected first 2 cards will "fold" and there hands will not be played and their stats will not be affected.</p>
+        <p>Its more likely than not that all players at a table fold, but that counts as a round non-the-less.</p>
+      </accordion>
+    </div>
+    <div class="instruction-details">
+      <button class="borderless" (click)="expand(5)">Step 6: Compute index plays</button>
+      <accordion [expanded]="instructionDetail[5]">
+        <p>From the <a routerLink="/sim-data">Sim Data</a> page, press "Compute index plays" and be prepared to wait depending on how many rounds you selected and the speed of your computer.</p>
+        <p>The more rounds the nore accurate the data, but do not feel the need to run billions of hands, the wait time would be rediculous. Sims with the exact set of conditions, counting strategy and play strategy will be aggregated together.</p>
+      </accordion>
+    </div>
+    <div class="instruction-details">
+      <button class="borderless" (click)="expand(6)">Step 7- Update your custom strategy chart</button>
+      <accordion [expanded]="instructionDetail[6]">
+        <p>Blah..... how to update play chart</p>
+      </accordion>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="break-even-streaks-container">
+  <button (click)="showStreakInfo$.next(false)" class="return-x">X</button>
+
+  <div class="intro-header">
+    <h2>Break Even Streaks</h2>
+    <p class="underline">Manage your Expectations</p>
+    <p>Are you wondering if you are experiencing bad variance, or are you really not as good as you think you are?</p>
+    <p>Take a look at the losing streaks from your latest siulation to see what the computer experienced.</p>
+  </div>
+
+  <div class="row row-wrapper">
+    <div class="select-wrapper">
+      <select (change)="handleSelectHandle($event)">
+      @for(handle of vmService.playerHandles; track handle) {
+        <option 
+          [value]="handle" 
+          [selected]="handle === (selectedPlayer$ | async)"
+        >
+          {{ handle }}
+        </option>
+      }  
+      </select>
+    </div>
+  </div>
+
+  <div class="row row-wrapper">
+    <label for="">Break Evenstreaks of or longer than:</label>
+    <div class="input-wrapper">
+      <input
+      min="0"
+      type="number"
+      [(ngModel)]="customStreakLength">
+    </div>
+  </div>
+
+  @if(customStreakLength > 0) {
+  <button (click)="customizeStreakLength()">Get Custom Streaks</button>
+  }
+  
+  <!-- <div class="canvas-wrapper">
+    <canvas id="myChart"></canvas>
+  </div> -->
+</div>

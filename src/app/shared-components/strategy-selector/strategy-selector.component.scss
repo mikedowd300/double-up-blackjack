@@ -1,0 +1,17 @@
+.strategy-selector-wrapper {
+  box-sizing: border-box;
+
+  &.center-align {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-wrapper {
+    padding: 0 0 12px 0;
+
+    p {
+      margin-top: 4px;
+    }
+  }
+}

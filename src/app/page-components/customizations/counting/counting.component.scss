@@ -1,0 +1,129 @@
+@use '../../../../scss/variables.scss';
+
+:host {
+
+  .counting-container {
+    padding: 16px;
+    max-width: 604px;
+
+    .content {
+      padding-top: 24px;
+      border-top: 1px solid #845ec2;
+
+      .directions {
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .count-chart-wrapper {
+        display: flex;
+        width: 100%;
+
+        .card-info-wrapper {
+          padding: 8px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 12px;
+          width: 25%;
+
+          label {
+            font-size: 24px;
+            margin-bottom: 8px;
+          }
+
+          .input-wrapper {
+            padding: 10px 4px;
+            width: 100%;
+            min-width: 31px;
+  
+            input {
+              width: calc(100% - 12px);
+              font-size: 24px;
+              // text-align: center;
+              min-width: 31px;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom-row {
+      justify-content: space-between;
+
+      .running-count {
+        margin-top: 16px;
+  
+        label {
+          font-size: 16px;
+          font-weight: 400;
+        }
+  
+        .input-wrapper {
+          padding: 10px 4px;
+          min-width: 31px;
+          width: 150px;
+    
+          input {
+            font-size: 24px;
+            text-align: center;
+            width: calc(100% - 12px);
+          }
+        }
+      }
+  
+      .card-info-wrapper.rounding-method {
+        margin-top: 24px;
+
+        .row {
+          align-items: center;
+          margin-bottom: 8px;
+
+          label {
+            font-size: 20px;
+            margin-right: 12px;
+          }
+  
+          input[type=radio] {
+            accent-color: variables.$secondary-color;
+            width: 24px;
+            height: 24px;
+            }
+  
+          input[type=checkbox] {
+            width: 40px;
+            transform: scale(3);
+            accent-color: variables.$secondary-color;
+          }
+        }
+      }
+
+      .true-count, .half-count {
+        margin-top: 16px;
+        margin-left: 8px;
+  
+        label {
+          font-size: 16px;
+          font-weight: 400;
+        }
+  
+        .input-wrapper {
+          width: 100%;
+          background-color: transparent;
+          border: none;
+          margin: auto;
+          margin-top: 24px;
+          display: flex;
+          justify-content: center;
+
+          input[type=checkbox] {
+            width: 24px;
+            transform: scale(2);
+            accent-color: variables.$secondary-color;
+          }
+        }
+      }
+    }
+  }
+}

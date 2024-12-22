@@ -1,0 +1,17 @@
+<div 
+  class="accordion-container"
+  [class.expanded]="expanded || accordionExpand"
+  [class.title]="title"
+>
+@if(title) {
+  <div class="instruction-wrapper">
+    <p class="instructions">{{ title }}</p>
+    <button
+      (click)="expand()"
+      class="simple toggle"
+      [class.close]="!accordionExpand"
+    >^</button>
+  </div>
+}
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,158 @@
+<div class="deviations-container page">
+  <div class="intro-row row">
+    <h1>Compute and Compare Deviations</h1>
+  </div>
+  @if(engine.showDeviationResultsSpinner$ | async) {
+    <loader></loader>
+  }
+  @if(!(engine.showDeviationResultsSpinner$ | async)) {
+  <div class="content-wrapper">
+    <div class="row center-items center-horizontally">
+      <p>Find the perfect way to play</p>
+      <div class="select-wrapper">
+        <select name="players-cards" id="" (change)="updatePlayersCards($event)">
+        @for(combo of playerFirst2Combo; track combo) {
+          <option [value]="combo" [selected]="combo === playersCards">{{ combo }}</option>
+        }  
+        </select>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row center-items center-horizontally">
+      <p>For the counting method: </p>
+      <div class="select-wrapper">
+        <select name="players-cards" id="" (change)="updateSelectedCountingMethodTitle($event)">
+        @for(title of countingMethodTitles; track title) {
+          <option 
+            [value]="title" 
+            [selected]="title === selectedCountingMethodTitle"
+          >
+            {{ title }}
+          </option>
+        }  
+        </select>
+      </div>
+    </div>
+    <hr>
+    <p>To create a deviation chart start with creating a customized chart from the build in deviationFinder chart. Edit your new chart as you discover proper play and deviations.</p>
+    <p>The options below will only include customized play strategy options.</p>
+    <div class="row center-items center-horizontally">
+      <p>Using the play strategy: </p>
+      <div class="select-wrapper">
+        <select name="players-cards" id="" (change)="updateSelectedPlayStrategyTitle($event)">
+        @for(title of playStrategyTitles; track title) {
+          <option 
+            [value]="title" 
+            [selected]="title === selectedPlayStrategyTitle"
+          >
+            {{ title }}
+          </option>
+        }  
+        </select>
+      </div>
+    </div>
+    <hr>
+
+    <p class="section-description">With the following table conditions:</p>
+    <div class="deviation-table-conditions-wrapper row center-items center-horizontally">
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.S17.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.S17.value"
+          (click)="setDeviationTableCondition($event, 'S17')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.RSA.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.RSA.value"
+          (click)="setDeviationTableCondition($event, 'RSA')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.DSA.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.DSA.value"
+          (click)="setDeviationTableCondition($event, 'DSA')"
+          >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.DAS.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.DAS.value"
+          (click)="setDeviationTableCondition($event, 'DAS')"
+          >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.doubleUpLosesOnPush.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.doubleUpLosesOnPush.value"
+          (click)="setDeviationTableCondition($event, 'doubleUpLosesOnPush')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.doubleUpLosesOnHalt.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.doubleUpLosesOnHalt.value"
+          (click)="setDeviationTableCondition($event, 'doubleUpLosesOnHalt')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.lateSurrender.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.lateSurrender.value"
+          (click)="setDeviationTableCondition($event, 'lateSurrender')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.canDoubleOn.description }}</label>
+        <div class="select-wrapper">
+          <select (change)="setDeviationTableCondition($event, 'canDoubleOn')">
+          @for(val of doubleDownOnVals; track val) {
+            <option [value]="val">{{ val }}</option>
+          }  
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row center-items center-horizontally wrapper-wrapper">
+      <p class="section-title">At the following stage of a hand</p>
+      <div class="select-wrapper widest">
+        <select (change)="updateHandStage($event)">
+        @for(stage of handStages; track stage) {
+          <option [value]="stage">{{ stage }}</option>
+        }  
+        </select>
+      </div>
+    </div>
+    <hr>
+    <div class="row center-items center-horizontally">
+      <p>Simulate</p>
+      <div class="number-input-wrapper wider">
+        <input
+          type="number"
+          [(ngModel)]="instances"
+          min="0"
+        >
+      </div>
+      <p> rounds</p>
+    </div>
+    <hr>
+    <div class="row center-horizontally">
+      <button (click)="findIndexPlays()" class="deviations-button">Compute Index Plays</button>
+      <button class="deviations-button">
+        <a routerLink="/deviation-charting" routerLinkActive="selected">Compare Index Results</a>
+      </button>
+    </div>
+  </div>
+  }
+</div>

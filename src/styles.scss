@@ -1,0 +1,148 @@
+@use './scss/variables.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  font-family: "Lato", sans-serif;
+  background-color: variables.$background-color;
+  color: variables.$primary-color;
+}
+
+.page {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 16px 16px;
+}
+
+.row {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: variables.$button-color;
+  border-color: variables.$border-color;
+  border-radius: 4px;
+  color: variables.$font-color;
+  box-shadow: 2px 4px variables.$primary-color;
+  min-width: 60px;
+  margin-right: 12px;
+  padding: 8px;
+  text-align: center;
+  font-size: 18px;
+
+  &.borderless {
+    background-color: rgba(255, 255, 255, .3);
+    border: none;
+    box-shadow: none;
+    margin: 6px 0 0;
+  }
+
+  &.simple {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: variables.$primary-color;
+    cursor: pointer;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.inline-error-message {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input, select {
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    border: none;
+    outline: none;
+  }
+}
+
+.input-wrapper {
+  border-radius: 4px;
+  border: 1px solid variables.$border-color;
+  padding-right: 12px;
+  width: 300px;
+  background-color: white;
+
+  input {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 6px;
+    font-size: 18px;
+    border-radius: 4px;
+    margin-right: 12px;
+    border: none;
+    background-color: transparent;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 12px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+  }
+
+  &.config {
+    @media screen and (max-width: 490px) {
+      width: 260px;
+
+      select {
+        width: 260px;
+      }
+    }
+
+    @media screen and (max-width: 440px) {
+      width: 200px;
+
+      select {
+        width: 200px;
+      }
+    }
+  }
+}
+
+p.underline {
+  text-decoration: underline;
+}
+
+p.bold {
+  font-weight: 700;
+}

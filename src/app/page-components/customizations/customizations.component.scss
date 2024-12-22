@@ -1,0 +1,59 @@
+@use '../../../scss/variables.scss';
+
+:host {
+
+  .customizations-container {
+
+    .customizing-description {
+      color: variables.$dark-font-color;
+      font-size: 20px;
+    }
+
+    .links-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      .link-wrapper {
+        box-sizing: border-box;
+        border: 2px solid variables.$border-color;
+        background-color: variables.$primary-color;
+        width: 48%;
+        margin-top: 12px;
+
+        a {
+          padding: 12px;
+          display: block;
+          text-decoration: none;
+
+          p {
+            margin: 0;
+            color: variables.$font-color;
+          }
+
+          .button-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding-bottom: 12px;
+            text-decoration: underline;
+          }
+  
+          .button-description {}
+        }
+
+        &:hover {
+          box-shadow: 2px 2px 2px white;
+        }
+
+        @media screen and (max-width: 500px) {
+          width: 100%;
+
+          &:nth-child(1) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@if(vmService.showHeader$ | async) {
+<div class="header-nav-container column">
+  <h1>{{ title }}</h1>
+  <div class="links-wrapper row">
+    <div class="link-wrapper">
+      <a 
+        routerLink="/" 
+        routerLinkActive="selected" 
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <p>Home</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/customizations" routerLinkActive="selected">
+        <p>Customizations</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/simulation" routerLinkActive="selected">
+        <p>Simulation</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/dashboard" routerLinkActive="selected">
+        <p>Dashboard</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/index-charts" routerLinkActive="selected">
+        <p>Index Charts</p>
+      </a>
+    </div>
+    <div class="link-wrapper">
+      <a routerLink="/practice" routerLinkActive="selected">
+        <p>Practice</p>
+      </a>
+    </div>
+  </div>
+</div>
+} 

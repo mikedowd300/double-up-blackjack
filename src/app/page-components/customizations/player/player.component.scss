@@ -1,0 +1,34 @@
+@use '../../../../scss/variables.scss';
+
+:host {
+
+  .player-container {
+    max-width: 604px;
+    margin: auto;
+    padding: 16px;
+
+    strategy-selector {
+      display: block;
+      width: 100%
+    }
+
+    .content {
+
+      .line {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+        padding: 8px;
+        align-items: center;
+        color: variables.$dark-font-color;
+        background-color: rgba(255, 255, 255, .5);
+        
+        &:nth-child(even) {
+          background-color: rgba(255, 255, 255, .2);
+        } 
+      }
+    }
+  }
+}

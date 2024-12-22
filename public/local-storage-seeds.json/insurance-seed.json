@@ -1,0 +1,8 @@
+{
+  "Insurance Seed": {
+    "title": "Never Insure", 
+    "alwaysInsure": false,
+    "neverInsure": true,
+    "aboveTCof": null
+  }
+}

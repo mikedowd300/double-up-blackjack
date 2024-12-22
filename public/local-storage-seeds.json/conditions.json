@@ -1,0 +1,28 @@
+{
+  "Seed Conditions": {
+    "title": "Seed Conditions",
+    "SI7": false,
+    "RSA":  true,
+    "MHFS": 4,
+    "DSA": true,
+    "DS21": false,
+    "DFL": false,
+    "DAS": false,
+    "MSE": false,
+    "reshuffleOnDealerChange": false,
+    "burnCardOnDealerChange": false,
+    "payRatio": "3/2",
+    "spotsPerTable": 7,
+    "decksPerShoe": 6,
+    "cardsBurned": 1,
+    "minBet": 5,
+    "maxBet": 1000,
+    "shufflePoint": 75,
+    "countBurnCard": false,
+    "handsPerDealer": 500,
+    "canDoubleOn":  "any2",
+    "doubleUpLosesOnPush": true,
+    "doubleUpLosesOnHalt": false,
+    "lateSurrender": false
+  }
+}

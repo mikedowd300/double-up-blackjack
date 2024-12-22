@@ -1,0 +1,146 @@
+@use '../../../../scss/variables.scss';
+
+:host {
+
+  .unit-resizing-container {
+    padding: 12px;
+
+    strategy-selector {
+      margin: auto;
+      display: block;
+    }
+
+    .content {
+      max-width: 604px;
+      margin: auto;
+      padding-top: 24px;
+      border-top: 1px solid variables.$border-color;
+
+      .button-group {
+        margin-bottom: 12px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .resize-headers {
+        border: 1px solid variables.$border-color;
+        color: variables.$dark-font-color;
+        box-sizing: border-box;
+
+        div {
+          padding: 8px;
+          box-sizing: border-box;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+
+          p {
+            max-width: 100%;
+            overflow: hidden;
+          }
+        }
+      }
+
+      .resize-headers, .strategy-row {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        border-right: 1px solid variables.$border-color;
+
+        &:nth-of-type(odd) {
+          background-color: rgba(255, 255, 255, .9);
+        }
+
+        .input-wrapper {
+          border-bottom: 1px solid variables.$border-color;
+          border-left: 1px solid variables.$border-color;
+          padding: 0;
+          border-radius: 0;
+
+          input {
+            box-sizing: border-box;
+            // width: calc(100% - 4px);
+            border: none;
+            margin: 0;
+            // padding: 12px;
+            font-size: 18px;
+            background-color: transparent;
+            text-align: center;
+            color: variables.$dark-font-color;
+          }
+
+          &.inactive {
+            background-color: variables.$secondary-color;
+          }
+        }
+
+        .unit-increase {
+          border-left: 1px solid variables.$border-color;
+          border-right: 1px solid variables.$border-color;
+        }
+      }
+
+      .first-column {
+        width: 26%;
+        background-color: rgba(255, 255, 255, .5);
+      }
+
+      .second-column {
+        background-color: rgba(255, 255, 255, .5);
+        width: 37%;
+      }
+
+      .third-column {
+        width: 37%;
+        background-color: rgba(255, 255, 255, .5);
+      }
+
+      .rounding-options {
+        display: flex;
+        margin-top: 24px;
+        justify-content: space-between;
+        color: variables.$dark-font-color;
+
+        .rounder {
+          box-sizing: border-box;
+          max-width: 50%;
+          border: 1px solid variables.$border-color;
+          background-color: variables.$background-color;
+          color: variables.$dark-font-color;
+          font-size: 18px;
+          border-radius: 3px;
+
+          p {
+            margin-top: 0;
+            padding: 12px 12px 0;
+            font-size: 20px;
+          }
+
+          .radio-option {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, .2);
+            padding: 12px;
+
+            &:first-of-type {
+              background-color: rgba(255, 255, 255, .5);
+            }
+
+            label {
+              font-size: 18px;
+              margin: 0;
+            }
+            
+            input[type=radio] {
+              transform: scale(2);
+              accent-color: variables.$secondary-color;;
+              margin-left: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

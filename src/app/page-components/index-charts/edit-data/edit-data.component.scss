@@ -1,0 +1,42 @@
+@use '../../../../scss/variables.scss';
+
+// $background-color: #68bbe3;
+// $border-color: #003060;
+// $dark-contrast: #003060;
+// $dark-font-color: #003060;
+// $primary-color: #0e86d4;
+// $secondary-color: #055c9d;
+// $button-color: #055c9d;
+// $font-color: white;
+// $lite-border: white;
+// $hover-background-color: rgba(255, 255, 255, .2);
+
+:host {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .edit-data-container {
+    color: variables.$dark-contrast;
+    font-size: 18px;
+
+    h2 {
+      text-align: center;
+    }
+
+    .row {
+
+      button {
+        margin-left: 16px;
+
+        &.disabled {
+          background-color: grey;
+
+          &:hover {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}

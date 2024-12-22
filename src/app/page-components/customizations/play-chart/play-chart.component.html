@@ -1,0 +1,38 @@
+<div class="play-chart-container page">
+  <strategy-selector
+    [activeStrategy$]="activeStrategy$"
+    [title]="title"
+    [defaultStrategiesObj]="defaultStrategiesObj"
+    [defaultStrategy]="defaultStrategy"
+    [strategyEnumType]="localStorageItemsEnum.PLAY"
+  ></strategy-selector>
+  <div class="content">
+    <p class="info"> The simulator and training software use the chart below to determine the correct play. So, while this chart could also be used to study and learn from, it was not made with that in mind.</p>
+    <div class="play-chart">
+      <div class="column row-headers">
+      @for(key of playersCardsKey; track key;) {
+        <span class="row-header">{{ key }}</span>
+      }
+      </div>
+      <div class="chart-columns">
+        @for(card of upCards; track card; let index = $index) {
+          <div class="upcard-column column">
+            <span class="chart-header">{{ card }}</span>
+          @for(key of keyColumns[index]; track key;) {
+            <div class="column">
+              <div class="cell-wrapper column">
+                <div class="options-input-wrapper">
+                  <input type="text" [(ngModel)]="activeStrategy.combos[key].options">
+                </div>
+                <div class="options-input-wrapper">
+                  <input type="text" [(ngModel)]="activeStrategy.combos[key].conditions">
+                </div>
+              </div>
+            </div>
+          }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

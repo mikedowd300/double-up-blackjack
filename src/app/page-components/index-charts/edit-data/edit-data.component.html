@@ -1,0 +1,31 @@
+<div class="edit-data-container page">
+  <h2>Select on of the following Sim Scenarios to edit or delete</h2>
+  @for(scenario of simScenarios; track scenario; let index = $index) {
+    <p>{{scenario}}</p>
+    <button (click)="edit(index)">Edit</button>
+    <button>Delete</button>
+    <accordion [expanded]="expanded[index]">
+      <p>Select a set of players cards and press "Clear" to zero out the results for all dealers upcards against the players cards</p>
+      <div class="row">
+        <div class="input-wrapper">
+          <select name="players-cards" id="" (change)="updatePlayersCards($event, index)">
+          @for(combo of playerFirst2Combo; track combo) {
+            <option [value]="combo">{{ combo }}</option>
+          }  
+          </select>
+        </div>
+        <button 
+          (click)="clearChartKeys(index)"
+          [disabled]="disabled[index]"
+          [class.disabled]="disabled[index]"
+        >
+          Clear
+        </button>
+        <button (click)="cancel(index)" >
+          Cancel
+        </button>
+      </div>
+    </accordion>
+    <hr>
+  }
+</div>

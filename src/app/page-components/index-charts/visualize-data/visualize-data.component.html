@@ -1,0 +1,143 @@
+<div class="deviation-charting-container page">
+  <div class="intro-row row">
+    <h1>Visualize Each Actions Outcome</h1>
+  </div>
+  <div class="content-wrapper">
+    <div class="row center-items center-horizontally collect-input">
+      <p>When the player has: </p>
+      <div class="select-wrapper">
+        <select name="players-cards" (change)="selectPlayersCards($event)">
+        @for(combo of playerFirst2Combo; track combo) {
+          <option [value]="combo" [selected]="combo === playersCards">{{ combo }}</option>
+        }  
+        </select>
+      </div>
+    </div>
+    <div class="row center-items center-horizontally collect-input">
+      <p>Using this counting method: </p>
+      <div class="select-wrapper">
+        <select name="players-cards" (change)="selectCountingMethodTitle($event)">
+        @for(title of countingMethodTitles; track title) {
+          <option 
+            [value]="title" 
+            [selected]="title === selectedCountingMethodTitle"
+          >
+            {{ title }}
+          </option>
+        }  
+        </select>
+      </div>
+    </div>
+    <div class="row center-items center-horizontally collect-input">
+      <p>Based on this play strategy: </p>
+      <div class="select-wrapper">
+        <select name="players-cards" (change)="selectPlayStrategyTitle($event)">
+        @for(title of playStrategyTitles; track title) {
+          <option 
+            [value]="title" 
+            [selected]="title === selectedPlayStrategyTitle"
+          >
+            {{ title }}
+          </option>
+        }  
+        </select>
+      </div>
+    </div>
+    <p class="section-description">With the following table conditions:</p>
+    <div class="deviation-table-conditions-wrapper row center-items center-horizontally">
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.S17.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.S17.value"
+          (click)="setDeviationTableCondition($event, 'S17')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.RSA.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.RSA.value"
+          (click)="setDeviationTableCondition($event, 'RSA')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.DSA.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.DSA.value"
+          (click)="setDeviationTableCondition($event, 'DSA')"
+          >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.DAS.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.DAS.value"
+          (click)="setDeviationTableCondition($event, 'DAS')"
+          >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.doubleUpLosesOnPush.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.doubleUpLosesOnPush.value"
+          (click)="setDeviationTableCondition($event, 'doubleUpLosesOnPush')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.doubleUpLosesOnHalt.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.doubleUpLosesOnHalt.value"
+          (click)="setDeviationTableCondition($event, 'doubleUpLosesOnHalt')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.lateSurrender.description }}</label>
+        <input 
+          type="radio" 
+          [checked]="deviationTableConditions.lateSurrender.value"
+          (click)="setDeviationTableCondition($event, 'lateSurrender')"
+        >
+      </div>
+      <div class="input-wrapper">
+        <label for="">{{ deviationTableConditions.canDoubleOn.description }}</label>
+        <div class="select-wrapper">
+          <select (change)="setDeviationTableCondition($event, 'canDoubleOn')">
+          @for(val of doubleDownOnVals; track val) {
+            <option [value]="val">{{ val }}</option>
+          }  
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="charts" id="charts-container">
+      @if(!chartDataExists) {
+      <div>
+        There is no data for that configuration
+      </div>
+      }
+      @if(chartIds.length > 0) {
+      <div>
+        @for(chartId of chartIds; track chartId) {
+        <h1>Player's {{ playersCards }} against a dealer's {{ chartId }}</h1>  
+        <div class="canvas-wrapper">
+          <div class="zoom-wrapper row">
+            <p>Zoom in from 0 to:   </p>
+            <div class="input-wrapper">
+              <input 
+                type="number" 
+                [value]="0"
+                (change)="updateChartRange($event, chartId)"
+              >
+            </div>
+          </div>
+          <canvas [id]="chartId"></canvas>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+</div>

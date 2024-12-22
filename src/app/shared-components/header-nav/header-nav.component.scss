@@ -1,0 +1,71 @@
+@use '../../../scss/variables.scss';
+
+:host {
+
+  .header-nav-container {
+    align-items: center;
+    min-width: 375px;
+    background-color: variables.$primary-color;
+    color: variables.$font-color;
+    overflow: scroll;
+
+    h1 {
+      margin: auto;
+      margin-top: 12px;
+
+      @media screen and (max-width: 500px) {
+        font-size: 24px;
+      }
+    }
+
+    .links-wrapper {
+      width: 100%;
+      min-width: 375px;
+      overflow: scroll;
+      justify-content: center;
+
+      @media screen and (max-width: 425px) {
+        justify-content: flex-start;
+        padding-left: 16px;
+      }
+
+      .link-wrapper {
+        padding: 0;
+
+        &:first {
+          padding-left: 24px;
+        }
+
+        @media screen and (max-width: 500px) {
+          flex-direction: column;
+        }
+
+        a {
+          color: variables.$font-color;
+          text-decoration: none;
+
+          &.selected {
+            color: white;
+            text-decoration: underline;
+          }
+
+          p {
+            margin: 6px 0 4px;
+            padding: 10px 10px 2px;
+            border-radius: 3px;
+            font-size: 18px;
+
+            &:hover {
+              background-color: variables.$hover-background-color;
+            }
+  
+            @media screen and (max-width: 500px) {
+              font-size: 16px;
+              padding: 10px 6px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

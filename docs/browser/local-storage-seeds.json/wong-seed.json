@@ -1,0 +1,10 @@
+{
+  "Wong Seed": {
+    "title": "3 More Spots",
+    "wongedHands": [
+      { "enter": 3, "exitBelow": 2 },
+      { "enter": 4, "exitBelow": 3 },
+      { "enter": 5, "exitBelow": 4 }
+    ]
+  }
+}

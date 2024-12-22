@@ -1,0 +1,12 @@
+@use '../../../scss/variables.scss';
+
+:host {
+
+  .dashboard-container {
+
+    loader {
+      margin:auto;
+      margin-top: 36px;
+    }
+  }
+}
