@@ -5,7 +5,7 @@
   <div class="links-container">
   @for(link of customizationLinks; track link) {
     <div class="link-wrapper">
-      <a [href]="link.linkUrl">
+      <a [routerLink]="link.linkUrl">
         <div>
           <p class="button-title">{{ link.title }}</p>
           <p class="button-description">{{ link.description }}</p>
