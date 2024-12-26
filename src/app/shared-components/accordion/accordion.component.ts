@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject, Observable, of, Subject, takeUntil } from 'rxjs';
+import { Observable, of, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'accordion',

@@ -24,7 +24,7 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "2-66": {
-      options: "SP H ST",
+      options: "H ST",
       conditions: ""
     },
     "2-55": {
@@ -68,8 +68,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "2-A5": {
-      options: "DD H ST",
-      conditions: "7"
+      options: "H ST",
+      conditions: ""
     },
     "2-A4": {
       options: "H ST",
@@ -112,24 +112,24 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "2-13": {
-      options: "H ST",
-      conditions: "-2"
+      options: "ST",
+      conditions: ""
     },
     "2-12": {
-      options: "ST H ST",
-      conditions: "4"
+      options: "H ST",
+      conditions: ""
     },
     "2-11": {
-      options: "H DD H ST",
-      conditions: "-1"
+      options: "DD H ST",
+      conditions: ""
     },
     "2-10": {
-      options: "H DD H ST",
-      conditions: "-10"
+      options: "DD H ST",
+      conditions: ""
     },
     "2-9": {
-      options: "DD H ST",
-      conditions: "1"
+      options: "H ST",
+      conditions: ""
     },
     "2-8": {
       options: "H ST",
@@ -172,7 +172,7 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "3-66": {
-      options: "SP ST",
+      options: "SP H ST",
       conditions: ""
     },
     "3-55": {
@@ -216,16 +216,16 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "3-A5": {
-      options: "DD H ST",
-      conditions: "6"
+      options: "H ST",
+      conditions: ""
     },
     "3-A4": {
       options: "H ST",
       conditions: ""
     },
     "3-A3": {
-      options: "DD H ST",
-      conditions: "7"
+      options: "H ST",
+      conditions: ""
     },
     "3-A2": {
       options: "H ST",
@@ -260,12 +260,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "3-13": {
-      options: "H ST",
-      conditions: "-4"
+      options: "ST",
+      conditions: ""
     },
     "3-12": {
-      options: "ST H ST",
-      conditions: "3"
+      options: "H ST",
+      conditions: ""
     },
     "3-11": {
       options: "DD H ST",
@@ -276,8 +276,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "3-9": {
-      options: "DD H ST",
-      conditions: "2"
+      options: "H ST",
+      conditions: ""
     },
     "3-8": {
       options: "H ST",
@@ -364,16 +364,16 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "4-A5": {
-      options: "DD DD H ST",
-      conditions: "-5 2"
+      options: "H ST",
+      conditions: ""
     },
     "4-A4": {
-      options: "DD H ST",
-      conditions: "5"
+      options: "H ST",
+      conditions: ""
     },
     "4-A3": {
-      options: "DD H ST",
-      conditions: "7"
+      options: "H ST",
+      conditions: ""
     },
     "4-A2": {
       options: "H ST",
@@ -388,8 +388,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "4-18": {
-      options: "DU ST",
-      conditions: "4"
+      options: "ST",
+      conditions: ""
     },
     "4-17": {
       options: "ST",
@@ -408,12 +408,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "4-13": {
-      options: "H ST",
-      conditions: "-6"
+      options: "ST",
+      conditions: ""
     },
     "4-12": {
-      options: "H ST",
-      conditions: "-4"
+      options: "ST",
+      conditions: ""
     },
     "4-11": {
       options: "DD H ST",
@@ -424,8 +424,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "4-9": {
-      options: "H DD H ST",
-      conditions: "-4"
+      options: "DD H ST",
+      conditions: ""
     },
     "4-8": {
       options: "H ST",
@@ -504,7 +504,7 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "5-A7": {
-      options: "DD DU ST",
+      options: "DD ST",
       conditions: ""
     },
     "5-A6": {
@@ -520,12 +520,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "5-A3": {
-      options: "H DD H ST",
-      conditions: "-4"
+      options: "DD H ST",
+      conditions: ""
     },
     "5-A2": {
-      options: "H DD H ST",
-      conditions: "-6"
+      options: "DD H ST",
+      conditions: ""
     },
     "5-20": {
       options: "DU ST",
@@ -540,8 +540,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "5-17": {
-      options: "DU ST",
-      conditions: "10"
+      options: "ST",
+      conditions: ""
     },
     "5-16": {
       options: "ST",
@@ -556,12 +556,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "5-13": {
-      options: "H ST",
-      conditions: "-10"
+      options: "ST",
+      conditions: ""
     },
     "5-12": {
-      options: "H ST",
-      conditions: "-8"
+      options: "ST",
+      conditions: ""
     },
     "5-11": {
       options: "DD H ST",
@@ -572,11 +572,11 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "5-9": {
-      options: "H DD H ST",
-      conditions: "-6"
+      options: "DD H ST",
+      conditions: ""
     },
     "5-8": {
-      options: "DD H ST",
+      options: "H ST",
       conditions: ""
     },
     "5-7": {
@@ -656,8 +656,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "6-A6": {
-      options: "H DD H ST",
-      conditions: "-1"
+      options: "DD H ST",
+      conditions: ""
     },
     "6-A5": {
       options: "H ST",
@@ -668,12 +668,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "6-A3": {
-      options: "DD H ST",
-      conditions: "7"
+      options: "H ST",
+      conditions: ""
     },
     "6-A2": {
-      options: "DD H ST",
-      conditions: "6"
+      options: "H ST",
+      conditions: ""
     },
     "6-20": {
       options: "DU ST",
@@ -704,8 +704,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "6-13": {
-      options: "H ST",
-      conditions: "-10"
+      options: "ST",
+      conditions: ""
     },
     "6-12": {
       options: "ST",
@@ -716,12 +716,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "6-10": {
-      options: "H DD H ST",
-      conditions: "-9"
+      options: "DD H ST",
+      conditions: ""
     },
     "6-9": {
-      options: "DD H ST",
-      conditions: "4"
+      options: "H ST",
+      conditions: ""
     },
     "6-8": {
       options: "H ST",
@@ -860,16 +860,16 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "7-11": {
-      options: "H DD H ST",
-      conditions: "-8"
+      options: "DD H ST",
+      conditions: ""
     },
     "7-10": {
-      options: "H DD H ST",
-      conditions: "-6"
+      options: "DD H ST",
+      conditions: ""
     },
     "7-9": {
-      options: "DD H ST",
-      conditions: "4"
+      options: "H ST",
+      conditions: ""
     },
     "7-8": {
       options: "H ST",
@@ -1008,12 +1008,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "8-11": {
-      options: "H DD H ST",
-      conditions: "-9"
+      options: "DD H ST",
+      conditions: ""
     },
     "8-10": {
-      options: "H DD H ST",
-      conditions: "-6"
+      options: "DD H ST",
+      conditions: ""
     },
     "8-9": {
       options: "H ST",
@@ -1124,8 +1124,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "9-19": {
-      options: "DU ST",
-      conditions: "-9"
+      options: "ST",
+      conditions: ""
     },
     "9-18": {
       options: "ST",
@@ -1156,12 +1156,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "9-11": {
-      options: "H DD H ST",
-      conditions: "-5"
+      options: "DD H ST",
+      conditions: ""
     },
     "9-10": {
-      options: "DD H ST",
-      conditions: "3"
+      options: "H ST",
+      conditions: ""
     },
     "9-9": {
       options: "H ST",
@@ -1272,8 +1272,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "10-19": {
-      options: "DU ST",
-      conditions: "-10"
+      options: "ST",
+      conditions: ""
     },
     "10-18": {
       options: "ST",
@@ -1284,12 +1284,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "10-16": {
-      options: "ST H ST",
-      conditions: "7"
+      options: "H ST",
+      conditions: ""
     },
     "10-15": {
-      options: "ST H ST",
-      conditions: "6"
+      options: "H ST",
+      conditions: ""
     },
     "10-14": {
       options: "H ST",
@@ -1304,8 +1304,8 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "10-11": {
-      options: "H DD H ST",
-      conditions: "-7"
+      options: "DD H ST",
+      conditions: ""
     },
     "10-10": {
       options: "H ST",
@@ -1376,7 +1376,7 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "A-AT": {
-      options: "ST",
+      options: "DU ST",
       conditions: ""
     },
     "A-A10": {
@@ -1432,16 +1432,16 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "A-16": {
-      options: "ST H ST",
-      conditions: "6"
+      options: "H ST",
+      conditions: ""
     },
     "A-15": {
-      options: "ST H ST",
-      conditions: "8"
+      options: "H ST",
+      conditions: ""
     },
     "A-14": {
-      options: "ST H ST",
-      conditions: "9"
+      options: "H ST",
+      conditions: ""
     },
     "A-13": {
       options: "H ST",
@@ -1452,12 +1452,12 @@ export const heavy6Strategy: PlayStrategy = {
       conditions: ""
     },
     "A-11": {
-      options: "H DD H ST",
-      conditions: "-5"
+      options: "DD H ST",
+      conditions: ""
     },
     "A-10": {
-      options: "DD H ST",
-      conditions: "3"
+      options: "H ST",
+      conditions: ""
     },
     "A-9": {
       options: "H ST",

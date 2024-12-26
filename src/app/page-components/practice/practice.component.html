@@ -1,6 +1,6 @@
 <div class="practice-container page" [class.play-error]="hasPlayError">
-  <accordion [expanded]="false" title="Perfect Your Play with the Play Charts of Your Choice">
-    <p><span class="bullet-point">* </span>Practice what decision to make with any first 2 card combination with any Dealer Upcard</p>
+  <accordion [expanded]="false" title="Perfect Your Play against any Play Chart">
+    <p><span class="bullet-point">* </span>Practice decision making with any first 2 card combination against any Dealer Upcard</p>
     <p><span class="bullet-point">* </span>Customize what card combinations to practice by <i>removing</i> or <i>including the columns and rows of your choice.</i></p>
     <p><span class="bullet-point">* </span>Practice with the <i>Play Chart</i> of your choice, be it basic strategy or a customized chart.</p>
     <p><span class="bullet-point">* </span>If your play chart includes deviations, you may select what deviation range to practice.</p>
@@ -13,7 +13,6 @@
     [expand$]="expandConditions$"
   >
     <div class="flex row">
-
       <div class="check-box-wrapper row">
         <label for="">Uses Surrender: </label>
         <input 
@@ -21,7 +20,6 @@
           [(ngModel)]="usesSurrender"
         >
       </div>
-
       <div class="select-info line">
         <label for="">For the Play Strategy:</label>
         <div class="input-wrapper">
@@ -35,9 +33,7 @@
           </select>
         </div>
       </div>
-
     </div>
-
     <div class="flex row deviation-range-wrapper">
       <label for="">Deviations Range: </label>
       <div class="input-wrapper">
@@ -48,7 +44,6 @@
         >
       </div>
     </div>
-
     <div class="chart-wrapper">
       <button class="absolute" (click)="deal()">Deal</button>
       <div class="upcard-wrapper">

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -46,8 +46,8 @@ export class PracticeComponent implements OnInit {
   hasPlayError: boolean = false;
   sign: number = 1;
   action: string = null;
-
-  suites: string[] = ['H', 'D', 'S', 'C']
+  suites: string[] = ['H', 'D', 'S', 'C'];
+  tens: string[] = ['0', 'J', 'Q', 'K'];
   playerHands = {
     '19': ['X,9'],
     '18': ['X,8'],
@@ -65,7 +65,6 @@ export class PracticeComponent implements OnInit {
     '6': ['4,2'],
     '5': ['3,2'],
   };
-  tens: string[] = ['0', 'J', 'Q', 'K'];
 
   constructor(public vmService: ViewModelService, private localStorageService: LocalStorageService) {}
 
@@ -115,7 +114,6 @@ export class PracticeComponent implements OnInit {
     const playersPair: string = this.filteredFirst2Cards[playersPairIndex];
     this.chartKey = `${upCard}-${playersPair}`;
     this.makeCards(playersPair, upCard);
-    console.log(this.chartKey);
     this.expandConditions$.next(false);
     this.showPracticeTable = true;
   }
@@ -125,7 +123,6 @@ export class PracticeComponent implements OnInit {
       ? this.playerHands[playerValue][0]
       : playerValue.split('').join(',')
     this.canSplit = cardPair.split(',')[0] === cardPair.split(',')[1];
-    console.log(playerValue, cardPair, cardPair.split(',')[0],cardPair.split(',')[1]);
     let card1: string = cardPair.split(',')[0].replace('10', 'X').replace('1', 'A');
     let card2: string = cardPair.split(',')[1].replace('10', 'X').replace('1', 'A');
     let dealerCard = dealerValue.replace('10', 'X').replace('1', 'A');
@@ -164,28 +161,19 @@ export class PracticeComponent implements OnInit {
     let conditions = this.selectedPlayStrategy.combos[this.chartKey].conditions.split(' ').filter(c => c !== '');
     let actions: string[] = this.selectedPlayStrategy.combos[this.chartKey].options.split(' ');
     let action: string = null;
-
     while(!action && conditions.length !== 0) {
       let tempCond = parseFloat(conditions.shift());
-      console.log(tempCond);
       if((tempCond > 0 && this.trueCount >= tempCond) || (tempCond < 0 && this.trueCount <= tempCond)) {
         action = actions.shift();
       } else {
         actions.shift();
       }
     }
-
     action = action || actions.shift();
     this.action = action;
-    console.log(this.selectedPlayStrategy.combos[this.chartKey]);
-
     if(selectedAction === action) {
-      // console.log('CORRECT', selectedAction, action);
-      // console.log('__________________________');
       this.deal();
     } else {
-      // console.log('INCORRECT', selectedAction, action);
-      // console.log('__________________________');
       this.hasPlayError = true;
       setTimeout(() => {
         this.hasPlayError = false;
@@ -194,19 +182,3 @@ export class PracticeComponent implements OnInit {
     }
   }
 }
-
-// Title
-// Explanation Of Page
-// Select Play Chart to Practice From
-// Select the True Count Deviation range to play with
-// Display Simplified version of Play chart
-//   1) allow user to select rows and columns to include or remove
-// Randomize
-//   1) Dealer Card
-//   2) randomize players cards
-//     a) randomize cards to produce players cards (eg, 5,4 6,3 or 7,2 all make 9)
-// Present cards and play scenario and play options
-//   1) Whether ot not to include surrender
-// If Fail, show proper play instructions - disppear on timeout or by user click
-// If Success, display next scenario
-// Track Success Rate and streaks without error

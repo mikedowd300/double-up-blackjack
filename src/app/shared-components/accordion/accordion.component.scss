@@ -1,13 +1,12 @@
 @use '../../../scss/variables.scss';
 
 :host {
-
   .accordion-container {
     max-height: 0;
     transition: max-height 0.4s, padding-left 0.4s;
-    overflow: scroll;
+    overflow: hidden;
     background-color: variables.$primary-color;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 
     &.title {
       border: 1px solid white;
@@ -50,6 +49,7 @@
     &.expanded {
       max-height: 400px;
       padding-left: 12px;
+      overflow: scroll;
     }
   }
 }
