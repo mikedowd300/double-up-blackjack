@@ -4,25 +4,19 @@
   width: 100%;
 
   .break-even-streaks-container {
+    display: flex;
+    flex-direction: column;
     overflow: scroll;
     width: 100%;
     margin: 0;
     padding: 16px;
     box-sizing: border-box;
     height: 100vh;
-    background-color: #00c9a7;
+    background-color: variables.$background-color;
     color: white;
     position: fixed;
     top: 0;
     left: 0;
-
-    .return-x {
-      position: absolute;
-      top: 0;
-      right: 0;
-      border: none;
-      box-shadow: none;
-    }
 
     .intro-header {
       text-align: center;
@@ -32,12 +26,12 @@
       width: 220px;
 
       button {
-        background-color: #845ec2;
+        background-color: variables.$button-color;
       }
 
       .select-wrapper {
         padding: 2px;
-        border: 1px solid #845ec2;
+        border: 1px solid variables.$border-color;
         border-radius: 3px;
         width: 120px;
         background-color: white;
@@ -45,7 +39,7 @@
         select {
           border: none;
           font-size: 18px;
-          color: #845ec2;
+          color: variables.$dark-font-color;
           padding-right: 8px;
           width: 100%;
           padding: 6px 8px;
@@ -53,9 +47,28 @@
       }
     }
 
-    // .canvas-wrapper {
-    //   margin-top:24px;
-    //   background-color: white;
-    // }
+    .input-content {
+      display: flex;
+      justify-content: space-around;
+
+      .streak-input-wrapper, .player-select-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .input-wrapper {
+          width: 220px;
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    .custom-streak-length {
+      margin: 12px auto;
+    }
+
+    .output-content {
+      align-content: center;
+    }
   }
 }

@@ -34,13 +34,14 @@
 
         .toggle {
           padding: 4px 0 0;
-          margin-top: 4px;
-          font-size: 32px;
-          line-height: 20px;
 
           &.close {
             transform: rotate(180deg);
             margin-top: -12px;
+          }
+
+          .material-symbols-outlined {
+            font-size: 36px;
           }
         }
       }

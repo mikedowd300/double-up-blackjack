@@ -124,7 +124,8 @@
       </div>
     </div>
     <hr>
-    <div class="row center-items center-horizontally wrapper-wrapper">
+    <!-- THIS MAY BE USEFUL FOR OTHER GAMES -->
+    <!-- <div class="row center-items center-horizontally wrapper-wrapper">
       <p class="section-title">At the following stage of a hand</p>
       <div class="select-wrapper widest">
         <select (change)="updateHandStage($event)">
@@ -133,8 +134,7 @@
         }  
         </select>
       </div>
-    </div>
-    <hr>
+    </div> -->
     <div class="row center-items center-horizontally">
       <p>Simulate</p>
       <div class="number-input-wrapper wider">
@@ -147,11 +147,8 @@
       <p> rounds</p>
     </div>
     <hr>
-    <div class="row center-horizontally">
+    <div class="row center-items center-horizontally">
       <button (click)="findIndexPlays()" class="deviations-button">Compute Index Plays</button>
-      <button class="deviations-button">
-        <a routerLink="/deviation-charting" routerLinkActive="selected">Compare Index Results</a>
-      </button>
     </div>
   </div>
   }

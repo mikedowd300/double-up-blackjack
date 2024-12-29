@@ -59,6 +59,16 @@ button {
     margin: 0;
   }
 
+  &.return-x {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    min-width: 0;
+  }
+
   &:last-of-type {
     margin-right: 0;
   }

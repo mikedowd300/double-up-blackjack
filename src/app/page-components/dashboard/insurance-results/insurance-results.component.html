@@ -1,6 +1,7 @@
 <div class="insurance-results-container">
-  <button (click)="showInsuranceResults$.next(false)" class="return-x">X</button>
-
+  <button (click)="showInsuranceResults$.next(false)" class="return-x">
+    <span class="material-symbols-outlined">close</span>
+  </button>
   <div class="row row-wrapper">
     <div class="select-wrapper">
       <select (change)="handleSelectHandle($event)">
@@ -27,5 +28,11 @@
   
   <div class="canvas-wrapper">
     <canvas id="myChart"></canvas>
+  </div>
+
+  <div>
+    <p>TODOs on this page</p>
+    <p>The data exists to look at the deck composition and find the actual ration of 10s to non-10s.</p>
+    <p>This would provide more acurate data based on math instead of what we can gleen based on a simulation.</p>
   </div>
 </div>

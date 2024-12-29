@@ -3,7 +3,6 @@
 :host {
 
   .simulation-container {
-    // background-color: #00c9a7;
     padding: 16px;
     margin: 0 auto 16px;
     border-radius: 4px;
@@ -14,14 +13,18 @@
     }
 
     h1 {
+      margin: 0 0 12px;
       text-align: center;
+      color: variables.$dark-font-color;
     }
     
     .select-row {
-      justify-content: space-around;
+      justify-content: space-between;
   
       label {
         font-size: 24px;
+        color: variables.$dark-font-color;
+        text-align: center;
       }
   
       .select-wrapper {
@@ -59,6 +62,18 @@
             font-size: 24px;
             width: 100%;
           }
+        }
+      }
+
+      .start-sim-button {
+        align-self: flex-end;
+        height: 46px;
+        font-size: 32px;
+        line-height: 50%;
+  
+        @media only screen and (max-width: 500px) {
+          margin-top: 0;
+          font-size: 24px;
         }
       }
     }
@@ -121,14 +136,19 @@
           .spot-title {
             font-size: 22px;
             text-align: center;
-            padding: 8px 4px;
+            padding: 4px;
             border-radius: 3px;
-            margin-bottom: 0;
+            margin: 0;
             background-color: rgba(255, 255, 255, .5);
             font-weight: 600;
   
+            @media only screen and (max-width: 950px) {
+              font-size: 18px;
+            }
+  
             @media only screen and (max-width: 650px) {
               margin-top: 0;
+              font-size: 16px;
             }
           }
   
@@ -138,10 +158,12 @@
             .spot-description {
               text-align: center;
               margin-bottom: 0;
+              margin-top: 8px;
             }
   
             .spot-value {
               margin-top: 4px;
+              margin-bottom: 8px;
               text-align: center;
               font-weight: 600;
             }

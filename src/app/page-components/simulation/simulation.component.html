@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="column">
-      <label for="">Rounds played</label>
+      <label for="">Rounds</label>
       <div class="select-wrapper iterations" [class.hide]="showCustomRoundsUI">
         <select (change)="selectIteration($event)">
         @for(option of iterationOptions; track option;) {
@@ -24,6 +24,13 @@
         <input type="number" (change)="selectIteration($event)">
       </div>
     </div>
+    <button
+      class="start-sim-button" 
+      [class.show]="showSimButton" 
+      (click)="startSim()"
+    >
+      Start
+    </button>
   </div>
   <div class="table-container">
     <div class="top-row-wrapper row">
@@ -43,10 +50,12 @@
         <p>{{ activeConditions.RSA ? 'RSA' : 'No RSA' }}</p>
       </span>
       <span class="table-condition">
-        <p>{{ activeConditions.decksPerShoe }} Decks with {{ activeConditions.shufflePoint }}% penn</p>
+        <p>{{ activeConditions.shufflePoint }}% penn</p>
       </span>
     </div>
-    <p class="bj-payout">Blackjack pays {{ activeConditions.payRatio }}</p>
+    <p class="bj-payout">
+      {{ activeConditions.decksPerShoe }} Decks  |  Blackjack pays {{ activeConditions.payRatio }}
+    </p>
     <div class="spots-wrapper row">
     @for(spot of spots; track spot;) {
       <div class="spot-wrapper column">
@@ -89,12 +98,4 @@
     }
     </div>
   </div>
-
-  <button #startSimButton
-    class="start-sim-button" 
-    [class.show]="showSimButton" 
-    (click)="startSim()"
-  >
-    Start Sim
-  </button>
-  </div>
+</div>

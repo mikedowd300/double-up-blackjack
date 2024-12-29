@@ -1,6 +1,8 @@
 <div class="replay-container page">
   <div class="dealer-wrapper">
-    <button (click)="showReplay$.next(false)" class="return-x">X</button>
+    <button (click)="showReplay$.next(false)" class="return-x">
+      <span class="material-symbols-outlined">close</span>
+    </button>
     <div class="cards-wrapper">
     @for(card of activeRecord.dealer.cards; track card) {
       <div class="card">

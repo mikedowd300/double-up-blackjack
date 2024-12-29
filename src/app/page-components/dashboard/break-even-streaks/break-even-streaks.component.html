@@ -1,43 +1,65 @@
 <div class="break-even-streaks-container">
-  <button (click)="showStreakInfo$.next(false)" class="return-x">X</button>
+  <button (click)="showStreakInfo$.next(false)" class="return-x">
+    <span class="material-symbols-outlined">close</span>
+  </button>
 
   <div class="intro-header">
     <h2>Break Even Streaks</h2>
     <p class="underline">Manage your Expectations</p>
     <p>Are you wondering if you are experiencing bad variance, or are you really not as good as you think you are?</p>
-    <p>Take a look at the losing streaks from your latest siulation to see what the computer experienced.</p>
+    <p>Take a look at the losing streaks from your latest simulation to see what the computer experienced.</p>
   </div>
 
-  <div class="row row-wrapper">
-    <div class="select-wrapper">
-      <select (change)="handleSelectHandle($event)">
-      @for(handle of vmService.playerHandles; track handle) {
-        <option 
-          [value]="handle" 
-          [selected]="handle === (selectedPlayer$ | async)"
-        >
-          {{ handle }}
-        </option>
-      }  
-      </select>
+  <div class="input-content">
+    <div class="row row-wrapper player-select-wrapper">
+      <label for="">Player</label>
+      <div class="select-wrapper">
+        <select (change)="handleSelectHandle($event)">
+        @for(handle of vmService.playerHandles; track handle) {
+          <option 
+            [value]="handle" 
+            [selected]="handle === (selectedPlayer$ | async)"
+          >
+            {{ handle }}
+          </option>
+        }  
+        </select>
+      </div>
     </div>
-  </div>
-
-  <div class="row row-wrapper">
-    <label for="">Break Evenstreaks of or longer than:</label>
-    <div class="input-wrapper">
-      <input
-      min="0"
-      type="number"
-      [(ngModel)]="customStreakLength">
+  
+    <div class="row row-wrapper streak-input-wrapper">
+      <label for="">Show Break Evenstreaks of or Longer Than:</label>
+      <div class="input-wrapper">
+        <input
+        min="0"
+        type="number"
+        [(ngModel)]="customStreakLength">
+      </div>
     </div>
   </div>
 
   @if(customStreakLength > 0) {
-  <button (click)="customizeStreakLength()">Get Custom Streaks</button>
+  <button (click)="customizeStreakLength()" class="custom-streak-length">
+    Show Streaks greater or equal to {{ customStreakLength }}
+  </button>
   }
-  
-  <!-- <div class="canvas-wrapper">
-    <canvas id="myChart"></canvas>
-  </div> -->
+
+  <div class="output-content">
+    @for(length of streakLengths; track length) {
+      @if(streakLengthsResults[length].length > 0) {
+      <p>{{ streakLengthsResults[length].length }} streaks without breaking even for {{ length }} rounds or more.</p>
+      }
+    }
+    <p>with the longest streak being {{ longestStreak }}</p>
+    <p>Additionally {{ selectedPlayer$ | async }} was on a streak of {{ endingStreak.length }} when the session ended.</p>
+  </div>
+
+  <div>
+    <p>TODOs on this page</p>
+    <p>Give specific info on each streak of how low the streak went.</p>
+    <p>Expand each section to show individual streaks.</p>
+    <p>Make individual streaks clickable to see it on a chart</p>
+    <p>Show the whole session chart with break even streaks portions in red</p>
+    <p>If a user clicks on a lomger streak, show the sub streaks of that streak, and the sub streaks of those if the user wishes</p>
+  </div>
 </div>

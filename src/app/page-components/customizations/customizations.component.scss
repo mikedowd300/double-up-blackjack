@@ -3,10 +3,16 @@
 :host {
 
   .customizations-container {
+    padding-top: 12px;
+
+    .accordion-container.title {
+      border: 1px solid variables.$border-color;
+    }
 
     .customizing-description {
-      color: variables.$dark-font-color;
+      color: variables.$font-color;
       font-size: 20px;
+      letter-spacing: 1.5px;
     }
 
     .links-container {

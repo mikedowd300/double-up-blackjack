@@ -1,5 +1,7 @@
 <div class="roi-charts-container page">
-  <button (click)="showRoiChart$.next(false)" class="return-x">X</button>
+  <button (click)="showRoiChart$.next(false)" class="return-x">
+    <span class="material-symbols-outlined">close</span>
+  </button>
   <div class="row row-wrapper">
     <div class="select-wrapper">
       <select (change)="handleSelectHandle($event)">

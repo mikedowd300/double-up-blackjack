@@ -1,47 +1,80 @@
-<div class="dashboard-container page">
+<div class="simulation-results-container page">
   @if(showLoader$ | async) {
     <loader></loader>
   }
   @if(!(showLoader$ | async)) {
-    <div class="dashboard-wrapper">
-      <button class="button-tile" (click)="showReplay$.next(true)">Replay Hands</button>
-      <button class="button-tile" (click)="showBankrollChart$.next(true)">Bankroll Chart</button>
-      <button class="button-tile" (click)="showRoiChart$.next(true)">Roi Chart</button>
-      <button class="button-tile" (click)="showInsuranceResults$.next(true)">Insurance Analysis</button>
-      <button class="button-tile" (click)="showStreakInfo$.next(true)">Break Even Streaks</button>
-      <p># of losing streaks greater than 100, 1000, 10000, 100000 rounds</p>
-      <p>Down swings in terms of betting units and duration</p>
+  <p class="instructions">Take a deepdive into your simulation results</p>
+  <div class="simulation-results-content">
+    <div class="results-wrapper">
+      <div class="result-option" (click)="showReplay$.next(true)">
+        <img src="simulation-images/replay.png" alt="Replay Hands">
+        <p class="option-title underline">Replay Hands</p>
+        <p class="option-description">
+          Step through your hands and see round by round how your strategies played out.
+        </p>
+      </div>
+      <div class="result-option" (click)="showBankrollChart$.next(true)">
+        <img src="simulation-images/bankroll.png" alt="Bankroll Chart">
+        <p class="option-title underline">Bankroll Chart</p>
+        <p class="option-description">
+          See how you bankroll grows with your chosen strategies.
+        </p>
+        <p>THIS PAGE MAY TAKE A WHILE TO LOAD</p>
+      </div>
+      <div class="result-option" (click)="showRoiChart$.next(true)">
+        <img src="simulation-images/roi.png" alt="Roi Charts">
+        <p class="option-title underline">Roi Charts</p>
+        <p class="option-description">
+          Visually see your profit, average profit and rate of return at each count.
+        </p>
+      </div>
+      <div class="result-option" (click)="showStreakInfo$.next(true)">
+        <img src="simulation-images/streaks.png" alt="Break Even Streaks">
+        <p class="option-title underline">Break Even Streaks</p>
+        <p class="option-description">
+          Understand what variance to expect by understanding what break even streaks to expect.
+        </p>
+      </div>
+      <div class="result-option" (click)="showInsuranceResults$.next(true)">
+        <img src="simulation-images/insurance.png" alt="Insurance Analysis">
+        <p class="option-title underline">Insurance Analysis</p>
+        <p class="option-description">
+          See the accurancy of your count to the insurance bet.
+        </p>
+        <p>Not all counts correlate the same to insurance.</p>
+      </div>
     </div>
-  }
-  @if(!(showLoader$ | async) && (showReplay$ | async)) {
+    @if(showReplay$ | async) {
     <replay
       [history]="history$ | async"
       [showReplay$]="showReplay$"
       [activeRecordIndex]="activeRecordIndex$ | async"
     ></replay>
-  }
-  @if(!(showLoader$ | async) && (showBankrollChart$ | async)) {
+    }
+    @if(showBankrollChart$ | async) {
     <bankroll-chart
       [bankrollData]="this.bankrollData$ | async"
       [showBankrollChart$]="showBankrollChart$"
       [replayHandAtIndex$]="replayHandAtIndex$"
     ></bankroll-chart>
-  }
-  @if(!(showLoader$ | async) && (showRoiChart$ | async)) {
+    }
+    @if(showRoiChart$ | async) {
     <roi-charts
       [showRoiChart$]="showRoiChart$"
       [history$]="history$"
       [handles]="vmService.playerHandles"
     ></roi-charts>
-  }
-  @if(!(showLoader$ | async) && (showInsuranceResults$ | async)) {
+    }
+    @if(showInsuranceResults$ | async) {
     <insurance-results
       [showInsuranceResults$]="showInsuranceResults$"
       [history]="insuranceHistory$ | async"
       [handles]="vmService.playerHandles"
     ></insurance-results>
-  }
-  @if(!(showLoader$ | async) && (showStreakInfo$ | async)) {
+    }
+    @if(showStreakInfo$ | async) {
     <break-even-streaks [showStreakInfo$]="showStreakInfo$"></break-even-streaks>
+    }
+  </div>
   }
 </div>

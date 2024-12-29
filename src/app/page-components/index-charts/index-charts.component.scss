@@ -5,40 +5,40 @@
   box-sizing: border-box;
   overflow: hidden;
 
-  .index-charts-container {
+  .sub-nav {
+    font-size: 22px;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, .2);
+    color: white;
+    overflow: scroll;
 
-    .sub-nav {
-      font-size: 22px;
-      margin: auto;
-      width: 100%;
-      max-width: 800px;
-      padding: 0 12px;
-      justify-content: space-around;
-      background-color: rgba(255, 255, 255, .2);
+    .link-wrapper {
+      margin: 0 20px;
       color: white;
 
-      .link-wrapper {
-        margin: 0 20px;
-        color: white;
+      a {
+        text-decoration: none;
+        color: variables.$secondary-color;
+        font-weight: 600;
 
-        a {
-          text-decoration: none;
+        &:visited {
           color: variables.$secondary-color;
-
-          &:visited {
-            color: variables.$secondary-color;
-          }
-        
-          &:hover {
-            cursor: pointer;
-            color: variables.$dark-font-color;
-          }
+        }
+      
+        &:hover {
+          cursor: pointer;
+          color: variables.$dark-font-color;
         }
       }
+    }
 
-      .instruction-details {
-        margin-bottom: 16px;
-      }
+    .instruction-details {
+      margin-bottom: 16px;
     }
   }
+
+  .index-charts-container {}
 }

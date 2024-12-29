@@ -2,11 +2,80 @@
 
 :host {
 
-  .dashboard-container {
+  .simulation-results-container {
+    overflow: hidden;
 
     loader {
       margin:auto;
       margin-top: 36px;
     }
+
+    .instructions {
+      color: variables.$dark-font-color;
+      text-align: center;
+      font-size: 36px;
+    }
+
+    .simulation-results-content {
+      margin-top: 16px;
+
+      .results-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .result-option { 
+          width: 300px;
+          border-radius: 4px;
+          border: 1px solid white;
+          background-color: variables.$dark-contrast;
+          color: variables.$font-color;
+          padding: 8px;
+          margin: 0 12px 12px 0;
+
+          img {
+            width: 100%;
+            max-width: 300px;
+            min-width: 300px;
+          }
+
+          .option-title {
+            text-align: center;
+            font-size: 22px;
+            margin: 16px 0;
+          }
+
+          .option-description {
+            font-size: 18px;
+          }
+
+          &:hover {
+            cursor: pointer;
+            border: 1px solid variables.$border-color;
+          }
+        }
+
+        @media screen and (max-width: 695px) {
+          .result-option { 
+            min-width: 390px;
+            width: calc(100% - 64px);
+
+            img {
+              max-width: 100%;
+              min-width: 390px;
+            }
+          }
+        }
+      }
+    }
   }
 }
+
+
+// <div class="result-option" (click)="showReplay$.next(true)">
+// <img src="" alt="Replay Hands">
+// <p class="option-title underline">Replay Hands</p>
+// <p class="option-description">
+//   Step through your hands and see round by round how your strategies played out.
+// </p>
+// </div>

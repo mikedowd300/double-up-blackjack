@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ViewModelService } from '../../services/view-model.service';
@@ -18,8 +18,6 @@ import { allDefaultConditions } from '../../default-configs/conditions';
 })
 
 export class SimulationPageComponent implements OnInit {
-
-  @ViewChild('startSimButton') startSimButton: ElementRef;
 
   iterationOptions: any[] = [ 1, 5, 10, 100, 1000, 10000, 50000, 100000, 1000000, 'Other' ];
   iterations: number = 1;
@@ -51,16 +49,15 @@ export class SimulationPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.vmService.showHeader$.next(true);
-    //   this.uiToLogicService.setSimInfoToNullInfo();
-      this.storedTableObjects = this.localStorageService.getItem(LocalStorageItemsEnum.TABLE_CONFIG);
-      this.allTableObjects = { ...defaultTables, ...this.storedTableObjects };
-      this.storedPlayerObjects = this.localStorageService.getItem(LocalStorageItemsEnum.PLAYER_CONFIG);
-      this.allPlayerObjects = { ...defaultPlayers, ...this.storedPlayerObjects };
-      this.storedConditions = this.localStorageService.getItem(LocalStorageItemsEnum.CONDITIONS);
-      this.allConditionObjects = { ...allDefaultConditions, ...this.storedConditions };
-      this.storedTableTitles = Object.keys(this.storedTableObjects || {});
-      this.allTableTitles = [ ...tableTitles, ...this.storedTableTitles ];
-      this.selectTable({ target: { value: tableTitles[0] }})
+    this.storedTableObjects = this.localStorageService.getItem(LocalStorageItemsEnum.TABLE_CONFIG);
+    this.allTableObjects = { ...defaultTables, ...this.storedTableObjects };
+    this.storedPlayerObjects = this.localStorageService.getItem(LocalStorageItemsEnum.PLAYER_CONFIG);
+    this.allPlayerObjects = { ...defaultPlayers, ...this.storedPlayerObjects };
+    this.storedConditions = this.localStorageService.getItem(LocalStorageItemsEnum.CONDITIONS);
+    this.allConditionObjects = { ...allDefaultConditions, ...this.storedConditions };
+    this.storedTableTitles = Object.keys(this.storedTableObjects || {});
+    this.allTableTitles = [ ...tableTitles, ...this.storedTableTitles ];
+    this.selectTable({ target: { value: tableTitles[0] }})
   }
 
   selectTable({ target }) {
@@ -71,7 +68,6 @@ export class SimulationPageComponent implements OnInit {
     this.spots = this.getSpots();
     if(this.iterations) {
       this.showSimButton = true;
-      setTimeout(() => this.startSimButton.nativeElement.focus());
     }
   }
   
@@ -80,7 +76,6 @@ export class SimulationPageComponent implements OnInit {
       this.iterations = parseInt(target.value);
       if(this.activeTable.conditionsTitle) {
         this.showSimButton = true;
-        setTimeout(() => this.startSimButton.nativeElement.focus());
       }
     } else {
       this.showCustomRoundsUI = true;

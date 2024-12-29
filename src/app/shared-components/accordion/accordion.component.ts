@@ -5,7 +5,7 @@ import { Observable, of, Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'accordion',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [ CommonModule ],
   templateUrl: './accordion.component.html',
   styleUrl: './accordion.component.scss'
 })

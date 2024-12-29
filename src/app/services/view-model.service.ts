@@ -12,7 +12,7 @@ export class ViewModelService {
   private nullInfo: SimInfo = { tableSkeleton: null, iterations: null };
   playerHandles: string[] = [];
   private simInfo: SimInfo = this.nullInfo;
-  private allowNavigationToDashboard: boolean = false;
+  public allowNavigationToDashboard: boolean = false;
   public simData$: BehaviorSubject<TableRecord[]> = new BehaviorSubject<TableRecord[]>(null);
   public insuranceResults$: BehaviorSubject<InsuranceDataByPlayer> = new BehaviorSubject<InsuranceDataByPlayer>(null);
   public tippedAway$: BehaviorSubject<any> = new BehaviorSubject<any>(null);

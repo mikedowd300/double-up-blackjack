@@ -2,7 +2,6 @@ import { Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Chart, ChartItem, registerables } from 'chart.js';
 import { RouterLink } from '@angular/router';
 import { ViewModelService } from '../../../services/view-model.service';
 import { PlayerStreakData, StreakDatum } from '../../../history/history-models';
@@ -18,7 +17,6 @@ import { PlayerStreakData, StreakDatum } from '../../../history/history-models';
 export class BreakEvenStreaksComponent implements OnInit, OnDestroy {
   @Input() showStreakInfo$: BehaviorSubject<boolean>;
 
-  // streakChart: Chart;
   selectedPlayer$: BehaviorSubject<string>;
   streakData: PlayerStreakData;
   streakLengths: number[] = [100, 500, 1000, 5000, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000];
@@ -35,7 +33,6 @@ export class BreakEvenStreaksComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.selectedPlayer$ = new BehaviorSubject<string>(this.vmService.playerHandles[0]);
     this.streakData = this.vmService.createStreakData();
-    Chart.register(...registerables);
     this.streakLengths.forEach(val => this.streakLengthsResults[val] = []);
     this.selectedPlayer$.subscribe(handle => this.getPlayerStreaks(handle));
   }
@@ -65,7 +62,6 @@ export class BreakEvenStreaksComponent implements OnInit, OnDestroy {
       }
     });
     this.endingStreak = newStreak;
-
     this.playerStreaks.forEach(s => {
       this.streakLengths.forEach(sl => {
         if(s.length >= sl) {
@@ -73,13 +69,7 @@ export class BreakEvenStreaksComponent implements OnInit, OnDestroy {
         }
       });
     });
-
-    this.longestStreak = Math.max( ...this.playerStreaks.map(s => s.length), this.endingStreak.length )
-
-    console.log(this.playerStreaks);
-    console.log(this.streakLengthsResults);
-    console.log("Last:", this.endingStreak);
-    console.log("Longest:", this.longestStreak);
+    this.longestStreak = Math.max( ...this.playerStreaks.map(s => s.length), this.endingStreak.length );
   }
 
   viewStreak(dataSubSet: PlayerStreakData) {
@@ -100,52 +90,4 @@ export class BreakEvenStreaksComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next(true);
   }
-
-  // getLabels(data): string[] {
-  //   return []
-  // }
-
-  // createBankrollChart(data, labels: string[], target: string): Chart {
-  //   if(this.streakChart) {
-  //     this.streakChart.destroy();
-  //   }
-  //   const ctx = document.getElementById('myChart');
-  //   return new Chart(ctx as ChartItem , {
-  //     type: 'line',
-  //     data: {
-  //       labels: labels,
-  //       datasets: [{
-  //         label: `${target}'s Break Even Streaks Chart`,
-  //         data: data,
-  //         borderWidth: 1
-  //       }]
-  //     },
-  //   })
-  // }
 }
-
-// List Streaks greater than:
-//   100
-//   500
-//   1000
-//   5000
-//   10000
-//   20000
-//   30000
-//   40000
-//   50000
-//   Custom
-
-//   with percentage of hands the player is in each of those "break even" streaks ar a longer one
-
-// Show the lenght of the losing streak the session ended on
-
-// Explain that losing streaks within a streak are not counted
-// allow user to select a streak to:
-//   view the streak's Bankroll chart
-//   Evaluate - That streak's streaks
-
-// For any given streak, show (visually, but aslo lexically) the amount of the downswing
-
-// DATA REQUIRED:
-// - Array of each player's bankroll from round to round including roundId
