@@ -2,5 +2,34 @@
 
 :host {
 
-  .home-container {}
+  .home-container {
+
+    h2 {
+      text-align: center;
+      color: variables.$dark-font-color;
+    }
+
+    .content-tiles-wrapper {
+
+      .content-tile {
+        font-size: 20px;
+        padding: 12px;
+        margin: 0 12px 12px 0;
+        background-color: variables.$dark-contrast;
+        color: variables.$font-color;
+        border-radius: 4px;
+        border: 1px solid variables.$lite-border;
+        letter-spacing: 1px;
+
+        button.simple.iframe-button {
+          padding: 0;
+
+          &:hover {
+            background-color: transparent;
+            color: variables.$background-color;
+          }
+        }
+      }
+    }
+  }
 }

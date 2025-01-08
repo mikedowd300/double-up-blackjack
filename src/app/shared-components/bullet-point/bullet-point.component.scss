@@ -1,0 +1,22 @@
+@use '../../../scss/variables.scss';
+
+:host {
+
+  .bullet-point-container {
+    padding: 12px;
+
+    &.lite {
+      background-color: rgba(255, 255, 255, .2);
+    }
+
+    .line-wrapper {
+      display: flex;
+      align-items: center;
+      margin: 0;
+
+      .icon-wrapper {
+        margin-right: 16px;
+      }
+    }
+  }
+}
